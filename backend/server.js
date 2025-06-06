@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection
-const MONGODB_URI = 'mongodb+srv://vote:vote123@cluster0.2vr7yhe.mongodb.net/voting-system';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
@@ -53,7 +53,7 @@ const createDefaultAdmin = async () => {
       });
 
       await defaultAdmin.save();
-      console.log('Default admin user created: admin@gmail.com / admin@123');
+      // console.log('Default admin user created: admin@gmail.com / admin@123');
     }
   } catch (error) {
     console.error('Error creating default admin:', error);
