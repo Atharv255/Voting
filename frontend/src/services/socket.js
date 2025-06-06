@@ -8,7 +8,7 @@ class SocketService {
 
   connect() {
     if (!this.socket) {
-      this.socket = io('http://localhost:5000', {
+      this.socket = io(import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000', {
         transports: ['websocket', 'polling']
       });
 
